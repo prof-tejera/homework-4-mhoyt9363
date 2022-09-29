@@ -1,12 +1,20 @@
-const Operation = ({ value }) => {
-  /** TODO: What happens when a user clicks an Operation, what do we want to pass to our parent? */
+//------------------------------------------
+// An operation has been clicked, determine 
+// how we want to display it and pass it back
+// to the parent.
+//------------------------------------------
+
+const Operation = ({ style={}, value, onClick }) => {
+  const defaultStyle = {
+    padding: 10,
+    border: "1px solid black",
+    width: 60,
+    textAlign: "center",
+    backgroundColor: "lightcoral",
+  }
   return (
-    <div
-      style={{
-        padding: 10,
-        border: "1px solid black",
-        width: 60,
-      }}
+    <div onClick={() => onClick(value)}
+      style={{...defaultStyle, ...style}}
     >
       {value}
     </div>
